@@ -1,8 +1,8 @@
 
 #include <iostream>
 #include "Menú.h"
-#include "Lista.h"
-#include "Calculos.h"
+#include "listaMetodos.h"
+
 #include <cstdlib>
 using namespace std;
 
@@ -11,7 +11,7 @@ using namespace std;
 int main() {
   cout << "Hello World!\n";
   
-
+  listaMetodos *m= new listaMetodos(); 
   Nodo *lista = NULL;
   int dato;
   int eleccion;
@@ -28,44 +28,44 @@ int main() {
 
     case 1: cout<<"Digite un numero para insertar a la lista"<<endl;
            cin>>dato;
-           lista = insertarLista(lista,dato);
+           lista = m->insertarElemento(lista,dato);
             break;
     
     case 2:    
-      MostrarLista(lista);
+      m->MostrarLista(lista);
       break;
   
     case 3: cout<< "Digite un numero para Buscar en la lista"<<endl;
       cin>>dato;
-      BuscarLista(lista,dato);
+      m->BuscarLista(lista,dato);
       break;
     case 4: cout<<"Digite un elemento para eliminar"<<endl;
       cin>>dato;
-      EliminarNodo(lista,dato);
+      m->EliminarNodo(lista,dato);
     break; 
 
-    case 5: PromedioPares(lista);
+    case 5: m->PromedioPares(lista);
       break;
 
-    case 6: PromedioImpares(lista);
+    case 6: m->PromedioImpares(lista);
       break;
 
-    case 7: CalcularMenor(lista);
+    case 7: m->CalcularMenor(lista);
       break;
 
-    case 8: CalcularMayor(lista);
+    case 8: m->CalcularMayor(lista);
       break;
 
-    case 9 : MostrarRepetidos(lista);
+    case 9 : m->MostrarRepetidos(lista);
       break;
 
-    case 10: EliminarRepetidos(lista);
+    case 10: m->EliminarRepetidos(lista);
       break;
 
-    case 11: OrdenarLista(lista);
+    case 11: m->OrdenarLista(lista);
       break;
 
-    case 12: InvertirLista(lista);
+    case 12: m->InvertirLista(lista);
     }
     
     

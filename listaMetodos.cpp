@@ -1,17 +1,10 @@
 #include <iostream>
 #include <stdlib.h>
 using namespace std;
-#ifndef LISTA_H
-#define LISTA_H
-
-struct Nodo{
-  int dato;
-  Nodo *siguiente;
-};
+#include "listaMetodos.h"
 
 
-
-Nodo* insertarLista(Nodo* lista, int n){
+Nodo* listaMetodos::insertarElemento(Nodo* lista, int n){
   Nodo *nuevo_nodo = new Nodo();
   nuevo_nodo->dato = n;
 
@@ -22,7 +15,7 @@ nuevo_nodo->siguiente = aux1;
 return nuevo_nodo;
 }  
 
-void MostrarLista(Nodo* lista){
+void listaMetodos::MostrarLista(Nodo* lista){
   Nodo  *actual = new Nodo();
 
   
@@ -34,7 +27,7 @@ void MostrarLista(Nodo* lista){
   }
 }
 
-void BuscarLista(Nodo *lista, int n){
+void listaMetodos::BuscarLista(Nodo *lista, int n){
   Nodo *actual = new Nodo();
   actual = lista;
   while(actual != NULL){
@@ -49,7 +42,7 @@ void BuscarLista(Nodo *lista, int n){
   
 }
 
-void EliminarNodo(Nodo *lista, int n){
+void listaMetodos::EliminarNodo(Nodo *lista, int n){
   if(lista != NULL){
     Nodo *anterior = NULL;
     Nodo *aux_borrar;
@@ -74,7 +67,7 @@ void EliminarNodo(Nodo *lista, int n){
 }
   }
 
-void MostrarRepetidos(Nodo *lista){
+void listaMetodos::MostrarRepetidos(Nodo *lista){
     Nodo *actual = new Nodo();
   actual = lista;
   Nodo *siguiente = new Nodo();
@@ -94,7 +87,7 @@ void MostrarRepetidos(Nodo *lista){
   
 }
 
-void EliminarRepetidos(Nodo *lista){
+void listaMetodos::EliminarRepetidos(Nodo *lista){
   Nodo *actual = new Nodo();
   actual = lista;
   Nodo *siguiente = new Nodo();
@@ -111,7 +104,7 @@ void EliminarRepetidos(Nodo *lista){
   }
 }
 
-void OrdenarLista(Nodo *lista){
+void listaMetodos::OrdenarLista(Nodo *lista){
   Nodo *aux1 = lista;
   Nodo *aux2;
   int aux;
@@ -131,14 +124,90 @@ void OrdenarLista(Nodo *lista){
   cout<<"La lista ha sido ordenada correctamente"<<endl;
 }
 
-void InvertirLista(Nodo *lista){
+void listaMetodos::InvertirLista(Nodo *lista){
     if (lista != NULL) {
     InvertirLista(lista->siguiente);
     cout << lista->dato << " -> ";
   }
 }
 
+void listaMetodos::PromedioPares(Nodo *lista){
+  Nodo *actual = new Nodo();
+  int sumatoria = 0;
+  int numeroDatos = 0;
+  int resultado = 0;
+
+  actual = lista;
+  
+  while(actual != NULL){
+    if(actual->dato % 2 == 0){
+      
+      sumatoria = sumatoria + actual->dato;
+      numeroDatos ++; 
+      cout<<"datos = "<<actual->dato<<endl;
+      }
+    actual = actual->siguiente;
+  }
+resultado =  sumatoria / numeroDatos;
+  
+  cout<<"sumatoria = "<<sumatoria<<endl;
+  cout<<"numerodatos = "<<numeroDatos <<endl;
+  cout<<"La suma promedio de los números pares es: "<<resultado<<endl;
+}
+
+void listaMetodos::PromedioImpares(Nodo *lista){
+  Nodo *actual = new Nodo();
+  int sumatoria = 0;
+  int numeroDatos = 0;
+  int resultado = 0;
+
+  actual = lista;
+  
+  while(actual != NULL){
+    if(actual->dato % 3 == 0){
+      
+      sumatoria = sumatoria + actual->dato;
+      numeroDatos ++; 
+      cout<<"datos = "<<actual->dato<<endl;
+      }
+    actual = actual->siguiente;
+  }
+resultado =  sumatoria / numeroDatos;
+  
+  cout<<"sumatoria = "<<sumatoria<<endl;
+  cout<<"numerodatos = "<<numeroDatos <<endl;
+  cout<<"La suma promedio de los números impares es: "<<resultado<<endl;
+}
+
+void listaMetodos::CalcularMenor(Nodo *lista){
+  Nodo *actual = new Nodo();
+
+  actual = lista;
+  int menor;
+  while(actual != NULL){
+    if(actual->dato < menor){
+      menor = actual->dato;
+    }
+    actual = actual->siguiente;
+  }
+  cout<<"El numero menor es: "<<menor<<endl;
+}
+
+void listaMetodos::CalcularMayor(Nodo *lista){
+  Nodo *actual = new Nodo();
+
+  actual = lista;
+  int mayor = 0;
+  while(actual != NULL){
+    if(actual->dato > mayor){
+      mayor = actual->dato;
+    }
+    actual = actual->siguiente;
+  }
+  cout<<"El numero mayor es: "<<mayor<<endl;
+}
 
 
 
-#endif 
+
+

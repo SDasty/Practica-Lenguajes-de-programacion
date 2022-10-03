@@ -2,8 +2,6 @@
 #include <stdlib.h>
 #include "Lista.h"
 using namespace std;
-#ifndef CALCULOS_H
-#define CALCULOS_H
 
 void PromedioPares(Nodo *lista){
   Nodo *actual = new Nodo();
@@ -80,7 +78,3 @@ void CalcularMayor(Nodo *lista){
   }
   cout<<"El numero mayor es: "<<mayor<<endl;
 }
-
-
-
-#endif
